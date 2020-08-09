@@ -6,13 +6,16 @@ Our purpose is to create a reporting script that can be ran to get recurring rep
 # Results: Using bulleted lists and images of DataFrames as support, address the following questions.
 
 ## How is the district summary affected?
-First, we should note that student size and budget did not change - the student IDs are still valid and budget was calculated from school data (not student data). Overall, there was little change in the district scores - a 1% increase for % passing reading and % overall passing rates, and a .1 increase in average math score. Since average reading score did not change (while % passing did), our conclusion is that Thomas High students achieved a 81.9 reading score on average, and the reduction to the pool of scores used to calculate these averages is why the reading & overall passing % increased. 
-Thomas High has a non-extreme budget for its students (~$630/student) and are typical for size (~1,200) so it's very possible that the scores are valid, though other evidence could exist. It is very surprising that Thomas High achieved the average math and reading scores almost perfectly though (only .1 score off of math), so additional analysis would be warranted.
+First, we should note that student size and budget did not change - the student IDs are still valid and budget was calculated from school data (not student data). We needed to create another student count though, to account for the missing 9th graders from Thomas (otherwise Thomas pass rates will plummet since the numerator will go down with the NaNs while the denominator will not since it's not based on math or reading scores)
+Overall, there were small changes to the district scores - a 1% decrease for reading math and overall passing %, and a .1 decrease in average math score. Remembering that we already factored in NaN student count totals in our analysis, it is significant that ommitting one grade from 1 out of 15 schools made a noticeable impact. Since most all scores and %s decreased, it means the 9th grade of Thomas performed better than the rest of the districts in terms of score and passing %.
 ## How is the school summary affected?
+We see that scores dropped .06 for math and reading, while % passing dropped .3% for reading and overall,  .09% for math.
 ## How does replacing the ninth graders’ math and reading scores affect Thomas High School’s performance relative to the other schools?
-How does replacing the ninth-grade scores affect the following:
-Math and reading scores by grade
-Scores by school spending
-Scores by school size
-Scores by school type
+### How does replacing the ninth-grade scores affect the following:
+### Math and reading scores by grade
+Only 9th grade scores from Thomas will be affected, so we will look at district wide averages (as nothing will be interesting looking at school level) Math scores for 9th graders dropped .23%, quite a large drop given that Thomas is one of 15 schools. The drop in reading was a  bit smaller, at .09%.
+### Scores by school spending
+### Scores by school size
+### Scores by school type
 # Summary: Summarize four major changes in the updated school district analysis after reading and math scores for the ninth grade at Thomas High School have been replaced with NaNs.
+There were some small changes the scores and % percentages. The budget information didn't change, but the scores did because we are excluding 9th graders from our analysis. Small changes to the scores resulted in math % dropping .08%, reading increased by .28% and overall % dropped by .28% While it's understandable that some scores will be similar to the average (multiple similar dependencies like location, teachers, school cirriculumn etc) it is very interesting that scores are so similar without the 9th graders. My suspicions would be that if scores were manipulated, they worked to match the average of the rest of Thomas High as much as possible to avoid detection (as none of this is hard proof - just somewhat rare occurences)
